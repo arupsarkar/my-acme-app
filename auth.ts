@@ -34,6 +34,8 @@ export const config = {
 
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
+      console.log("process env instagram Id ", process.env.INSTAGRAM_ID);
+      console.log("process env instagram secret ", process.env.INSTAGRAM_SECRET);
       console.log("callbacks signIn", user, account, profile);
       return true;
     },
