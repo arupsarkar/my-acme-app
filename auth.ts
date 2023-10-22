@@ -7,6 +7,7 @@ import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
 
 import Google from "next-auth/providers/google";
+import Instagram from "next-auth/providers/instagram";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
@@ -24,6 +25,10 @@ export const config = {
     Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    Instagram({
+      clientId: process.env.INSTAGRAM_ID,
+      clientSecret: process.env.INSTAGRAM_SECRET,
     }),
   ],
 
@@ -94,6 +99,8 @@ declare global {
         NEXTAUTH_SECRET: string
         GOOGLE_ID: string
         GOOGLE_SECRET: string
+        INSTAGRAM_ID: string
+        INSTAGRAM_SECRET: string
       }
     }
 }
