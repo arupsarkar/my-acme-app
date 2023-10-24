@@ -36,7 +36,11 @@ export const config = {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("process env instagram Id ", process.env.INSTAGRAM_ID);
       console.log("process env instagram secret ", process.env.INSTAGRAM_SECRET);
-      console.log("callbacks signIn", user, account, profile);
+      console.log("callbacks signIn user ", user);
+      console.log("callbacks signIn account ", account);
+      console.log("callbacks signIn profile ", profile);
+      console.log("callbacks signIn email ", email);
+      console.log("callbacks signIn credentials ", credentials);
       return true;
     },
     async redirect({ url, baseUrl }) {
@@ -44,7 +48,9 @@ export const config = {
       return baseUrl;
     },
     async session({ session, user, token }) {
-      console.log("callbacks session", session, user, token);
+      console.log("callbacks session", session);
+      console.log("callbacks session user", user);
+      console.log("callbacks session token ", token);
       return session;
     },
     async jwt({ token, user, account, profile }) {
