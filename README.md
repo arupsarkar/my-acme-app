@@ -20,6 +20,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Setting up instagram OAuth process in facebook and instagram
+- [Create an app in developers.facebook.com](https://developers.facebook.com/)
+- Add People with Instagram Tester as Role
+- [Log into Instagram and accept the invite](https://www.instagram.com/accounts/manage_access/)
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
