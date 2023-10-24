@@ -3,9 +3,13 @@ import Layout from "../app/components/layout"
 
 import type { GetServerSidePropsContext } from "next"
 import { useSession } from "next-auth/react"
+import { getAccessToken } from "../../auth"
+
+import type { NextApiRequest, NextApiResponse } from "next"
 
 export default function ServerSidePage() {
   const { data: session } = useSession()
+
   // As this page uses Server Side Rendering, the `session` will be already
   // populated on render without needing to go through a loading stage.
   return (
@@ -29,6 +33,7 @@ export default function ServerSidePage() {
         render.
       </p>
       <pre>{JSON.stringify(session, null, 2)}</pre>
+      <pre>getAccessToken(NextApiRequest, NextApiResponse)</pre>
     </Layout>
   )
 }
