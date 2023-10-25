@@ -38,6 +38,7 @@ export const config = {
       console.log("process env instagram secret ", process.env.INSTAGRAM_SECRET);
       console.log("callbacks signIn user ", user);
       console.log("callbacks signIn account ", account);
+      console.log("callbacks signIn access token --->  ", account?.access_token);
       console.log("callbacks signIn profile ", profile);
       console.log("callbacks signIn email ", email);
       console.log("callbacks signIn credentials ", credentials);
@@ -62,6 +63,8 @@ export const config = {
   events: {
     async signIn(message) {
       console.log("events signIn", message);
+      console.log("events signIn user", message.user.name);
+      console.log("events signIn token", message.account?.access_token);
     },
     async signOut(message) {
       console.log("events signOut", message);
