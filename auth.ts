@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 
 import Google from "next-auth/providers/google";
 import Instagram from "next-auth/providers/instagram";
+import Twitter from "next-auth/providers/twitter";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
@@ -29,6 +30,10 @@ export const config = {
     Instagram({
       clientId: process.env.INSTAGRAM_ID,
       clientSecret: process.env.INSTAGRAM_SECRET,
+    }),
+    Twitter({
+      clientId: process.env.TWITTER_ID,
+      clientSecret: process.env.TWITTER_SECRET,
     }),
   ],
 
@@ -112,6 +117,8 @@ declare global {
         GOOGLE_SECRET: string
         INSTAGRAM_ID: string
         INSTAGRAM_SECRET: string
+        TWITTER_ID: string
+        TWITTER_SECRET: string
       }
     }
 }
