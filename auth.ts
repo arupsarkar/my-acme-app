@@ -5,7 +5,6 @@ import type {
 } from "next";
 import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
-import { getToken } from "next-auth/jwt";
 
 import Google from "next-auth/providers/google";
 import Instagram from "next-auth/providers/instagram";
@@ -113,15 +112,3 @@ declare global {
       }
     }
 }
-
-//get the access token
-export async function getAccessToken(
-  req: NextApiRequest,
-  res: NextApiResponse<any>) {
-    const secret = process.env.NEXTAUTH_SECRET
-    const token = await getToken({ req: req, secret: secret });
-    if (token) {
-      console.log("token ", JSON.stringify(token));
-      return JSON.stringify(token);
-    }
-  }
