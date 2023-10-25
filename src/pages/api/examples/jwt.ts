@@ -10,6 +10,8 @@ export default async function handler(
   // If you don't have the NEXTAUTH_SECRET environment variable set,
   // you will have to pass your secret as `secret` to `getToken`
   const secret = process.env.NEXTAUTH_SECRET
+  console.log("api examples secret ---> ", secret)
   const token = await getToken({ req, secret })
+  console.log("api examples token ---> ", token)
   res.send(JSON.stringify(token, null, 2))
 }
