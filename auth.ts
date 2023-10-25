@@ -34,6 +34,7 @@ export const config = {
     Twitter({
       clientId: process.env.TWITTER_ID,
       clientSecret: process.env.TWITTER_SECRET,
+      version: "2.0",
     }),
   ],
 
