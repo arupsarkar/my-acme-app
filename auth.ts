@@ -19,6 +19,7 @@ declare module "next-auth/jwt" {
 }
 
 export const config = {
+  secret: process.env.NEXTAUTH_SECRET,
   theme: {
     logo: "https://next-auth.js.org/img/logo/logo-sm.png",
   },
