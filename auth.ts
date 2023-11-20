@@ -25,6 +25,7 @@ declare module "next-auth/jwt" {
 const pool = createPool({
   connectionString: process.env.POSTGRES_URL,
 });
+pool.connect();
 
 //add the vercelPostgresAdapter to the config object
 export const adapter = vercelPostgresAdapter();
