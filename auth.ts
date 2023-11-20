@@ -19,6 +19,11 @@ declare module "next-auth/jwt" {
     userRole?: "admin";
   }
 }
+//https://authjs.dev/reference/adapter/pg
+//https://authjs.dev/getting-started/adapters#models
+//https://github.com/vercel/storage/tree/main/packages/postgres#readme
+
+
 
 //add the vercelPostgresAdapter to the config object
 export const adapter = vercelPostgresAdapter();
