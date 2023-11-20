@@ -7,8 +7,13 @@ import {
     AdapterUser,
     VerificationToken,
 } from 'next-auth/adapters'
+import { createPool } from '@vercel/postgres';
 
 export default function vercelPostgresAdapter(): Adapter {
+//postgres://default:iMLX2Kno4WcR@ep-dry-shadow-94094145-pooler.us-east-1.postgres.vercel-storage.com/verceldb
+    const pool = createPool({
+        connectionString: process.env.POSTGRES_URL,
+      });        
 
         const createUser = async (
             user: Omit<AdapterUser, "id">
