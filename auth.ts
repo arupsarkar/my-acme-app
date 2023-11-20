@@ -6,6 +6,8 @@ import type {
 import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
 
+import vercelPostgresAdapter from "@/app/utils/db/vercelPostgresAdapter";
+
 import Google from "next-auth/providers/google";
 import Instagram from "next-auth/providers/instagram";
 import Twitter from "next-auth/providers/twitter";
@@ -18,15 +20,20 @@ declare module "next-auth/jwt" {
   }
 }
 
+//add the vercelPostgresAdapter to the config object
+export const adapter = vercelPostgresAdapter();
+
+
 export const config = {
   secret: process.env.NEXTAUTH_SECRET,
   theme: {
     logo: "https://next-auth.js.org/img/logo/logo-sm.png",
   },
   providers: [
+    adapter,
     Google({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientSecret: process.env.GOOGLE_SECRET,      
     }),
     Instagram({
       clientId: process.env.INSTAGRAM_ID,
@@ -78,9 +85,11 @@ export const config = {
     },
     async createUser(message) {
       /* user created */
+      console.log("createUser", message);
     },
     async linkAccount(message) {
       /* account linked to a user */
+      console.log("linkAccount", message);
     },
     async session(message) {
       console.log("events session", message);
