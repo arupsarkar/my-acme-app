@@ -11,6 +11,7 @@ import vercelPostgresAdapter from "@/app/utils/db/vercelPostgresAdapter";
 import Google from "next-auth/providers/google";
 import Instagram from "next-auth/providers/instagram";
 import Twitter from "next-auth/providers/twitter";
+import { createPool } from "@vercel/postgres";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
@@ -19,11 +20,11 @@ declare module "next-auth/jwt" {
     userRole?: "admin";
   }
 }
-//https://authjs.dev/reference/adapter/pg
-//https://authjs.dev/getting-started/adapters#models
-//https://github.com/vercel/storage/tree/main/packages/postgres#readme
 
-
+//create a @vercel/postgres pool
+const pool = createPool({
+  connectionString: process.env.POSTGRES_URL,
+});
 
 //add the vercelPostgresAdapter to the config object
 export const adapter = vercelPostgresAdapter();
