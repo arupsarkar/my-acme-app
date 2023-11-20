@@ -9,11 +9,30 @@ import {
 } from 'next-auth/adapters'
 import { createPool } from '@vercel/postgres';
 
+
+//https://authjs.dev/reference/adapter/pg
+//https://github.com/nextauthjs/next-auth/blob/main/packages/adapter-pg/schema.sql
+//https://next-auth.js.org/tutorials/creating-a-database-adapter#required-methods
+//https://authjs.dev/getting-started/adapters#models
+//https://github.com/vercel/storage/tree/main/packages/postgres#readme
+//https://authjs.dev/getting-started/adapters#models
+//https://spacejelly.dev/posts/how-to-create-a-nextauth-js-custom-adapter-with-harperdb-next-js/
+//https://next-auth.js.org/tutorials#database
+
+
+
+//https://studio.harperdb.io/
+//sarkar.arup@gmail.com
+//Salesforce1@!
+
+
+
 export default function vercelPostgresAdapter(): Adapter {
 //postgres://default:iMLX2Kno4WcR@ep-dry-shadow-94094145-pooler.us-east-1.postgres.vercel-storage.com/verceldb
-    const pool = createPool({
-        connectionString: process.env.POSTGRES_URL,
-      });        
+    // const pool = createPool({
+
+    //     connectionString: process.env.POSTGRES_URL,
+    //   });        
 
         const createUser = async (
             user: Omit<AdapterUser, "id">
